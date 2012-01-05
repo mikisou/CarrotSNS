@@ -1,7 +1,8 @@
 <div class="topbar">
   <div class="fill">
     <div class="container">
-      <a class="brand" href="#">Carrot SNS</a>
+      <%= link_to "Carrot SNS", root_path, class: "brand" %>
+      <a class="brand" href="#"></a>
       <%= render partial: "shared/menu" %>
       <% if current_user %>
         <%= render partial: "shared/logout" %>
