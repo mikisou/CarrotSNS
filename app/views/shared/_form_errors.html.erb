@@ -1,0 +1,8 @@
+<% if obj.errors.any? %>
+  <div class="alert-message error">
+    <a class="close" href="#">&times;</a>
+    <% obj.errors.full_messages.each do |msg| %>
+      <p>・<%= msg %></p>
+    <% end %>
+  </div>
+<% end %>

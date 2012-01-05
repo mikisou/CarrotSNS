@@ -1,3 +1,5 @@
+    <%= render partial: "shared/form_errors", locals: {obj: @user} %>
+
     <%= f.text_field :login, :class => 'text_field' %>
 
     <%= f.text_field :email, :class => 'text_field' %>

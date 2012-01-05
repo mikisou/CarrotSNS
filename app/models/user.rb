@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
+
 class User < ActiveRecord::Base
   has_secure_password
-  validates_presence_of :password, :on => :create
+  validates :password, presence: true, on: :create
+  validates :login, presence: true, uniqueness: true
 end

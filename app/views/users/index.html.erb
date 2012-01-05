@@ -1,21 +1,22 @@
 <table class="zebra-striped">
  <thead>
   <tr>
-    <th>ID</th>
-        <th>
-      <%= t("activerecord.attributes.user.login", :default => t("activerecord.labels.login", :default => "Login")) %>
-    </th>
-        <th>Created at</th>
+    <th>No</th>
+    <th><%= t("activerecord.attributes.user.login", :default => t("activerecord.labels.login", :default => "Login")) %></th>
+    <th><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %></th>
+    <th>Created at</th>
+    <th>Updated at</th>
     <th>Actions</th>
   </tr>
   </thead>
   <tbody>
-  <% @users.each do |user| -%>
+  <% @users.each_with_index do |user, idx| -%>
    <tr>
-    <td><%= user.id %></td>
-        <td><%= link_to user.login, user_path(user) %>
-    </td>
-        <td><%= user.created_at %></td>
+     <td><%= idx + 1 %></td>
+     <td><%= link_to user.login, user_path(user) %></td>
+     <td><%= user.email %></td>
+     <td><%= time_format(user.created_at) %></td>
+     <td><%= time_format(user.updated_at) %></td>
     <td>
       <%= link_to "Show", user_path(user) %>
       <%= link_to "Edit", edit_user_path(user) %>
