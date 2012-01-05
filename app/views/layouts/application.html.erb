@@ -8,21 +8,27 @@
 </head>
 <body style="padding-top: 60px">
   <div class="topbar">
-    <div class="topbar-inner">
+    <div class="fill">
       <div class="container">
-        <h3><%= link_to "CarrotSns", "/" %></h3>
+        <a class="brand" href="#">Carrot SNS</a>
         <ul class="nav">
-          <li><%= link_to "Link1", "/path1"  %></li>
-          <li><%= link_to "Link2", "/path2"  %></li>
-          <li><%= link_to "Link3", "/path3"  %></li>
-        
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <%= render partial: "shared/login" %>
       </div>
     </div>
   </div>
+  
   <div class="container">
     <div class="content">
       <div class="row">
         <div class="span11">
+          <%= render partial: "shared/flash", locals: {m_type: "success", message: (flash[:success])} %>
+          <%= render partial: "shared/flash", locals: {m_type: "info", message: (flash[:notice])} %>
+          <%= render partial: "shared/flash", locals: {m_type: "warning", message: (flash[:warning])} %>
+          <%= render partial: "shared/flash", locals: {m_type: "error", message: (flash[:error])} %>
           <%= yield %>
         </div>
         <div class="span1">&nbsp;</div>
