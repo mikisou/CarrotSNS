@@ -37,3 +37,5 @@ end
 
 gem 'execjs'
 gem 'therubyracer'
+
+gem 'twitter-bootstrap-rails'
