@@ -39,3 +39,4 @@ gem 'execjs'
 gem 'therubyracer'
 
 gem 'twitter-bootstrap-rails'
+gem 'bcrypt-ruby'

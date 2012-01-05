@@ -1,13 +1,11 @@
-
-    <%= f.label :login, t("activerecord.attributes.user.login", :default => "Login"), :class => :label %>
     <%= f.text_field :login, :class => 'text_field' %>
 
-    <%= f.label :email, t("activerecord.attributes.user.email", :default => "Email"), :class => :label %>
     <%= f.text_field :email, :class => 'text_field' %>
 
-    <%= f.label :password_digest, t("activerecord.attributes.user.password_digest", :default => "Password digest"), :class => :label %>
-    <%= f.text_field :password_digest, :class => 'text_field' %>
-<div class="actions">
-  <button class="btn primary" type="submit">Save</button> or
-	<%= link_to "Cancel", users_path %>
-</div>
+    <%= f.text_field :password, :class => 'text_field' %>
+    <%= f.text_field :password_confirmation, :class => 'text_field' %>
+
+    <div class="actions">
+      <button class="btn primary" type="submit">Save</button> or
+      <%= link_to "Cancel", users_path %>
+    </div>
