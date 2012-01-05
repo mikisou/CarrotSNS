@@ -1,6 +1,7 @@
 CarrotSns::Application.routes.draw do
   resources :users
   resource :session
+  resources :top
   
-  root :to => 'users#index'
+  root :to => 'top#index'
 end

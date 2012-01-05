@@ -11,12 +11,12 @@
     <div class="fill">
       <div class="container">
         <a class="brand" href="#">Carrot SNS</a>
-        <ul class="nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <%= render partial: "shared/login" %>
+        <%= render partial: "shared/menu" %>
+        <% if current_user %>
+          <%= render partial: "shared/logout" %>
+        <% else %>
+          <%= render partial: "shared/login" %>
+        <% end %>
       </div>
     </div>
   </div>
