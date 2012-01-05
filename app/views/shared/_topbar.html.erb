@@ -1,0 +1,13 @@
+<div class="topbar">
+  <div class="fill">
+    <div class="container">
+      <a class="brand" href="#">Carrot SNS</a>
+      <%= render partial: "shared/menu" %>
+      <% if current_user %>
+        <%= render partial: "shared/logout" %>
+      <% else %>
+        <%= render partial: "shared/login" %>
+      <% end %>
+    </div>
+  </div>
+</div>

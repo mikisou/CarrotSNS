@@ -1,0 +1,4 @@
+<%= render partial: "shared/flash", locals: {m_type: "success", message: (flash[:success])} %>
+<%= render partial: "shared/flash", locals: {m_type: "info", message: (flash[:notice])} %>
+<%= render partial: "shared/flash", locals: {m_type: "warning", message: (flash[:warning])} %>
+<%= render partial: "shared/flash", locals: {m_type: "error", message: (flash[:error])} %>
