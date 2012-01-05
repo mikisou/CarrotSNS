@@ -1,20 +1,10 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Login:</b>
-  <%= @user.login %>
-</p>
+  <label class="label"><%= t("activerecord.attributes.user.login", :default => t("activerecord.labels.login", :default => "Login")) %>:</label>
+  <p><%= @user.login %></p>
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
+  <label class="label"><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</label>
+  <p><%= @user.email %></p>
 
-<p>
-  <b>Password digest:</b>
-  <%= @user.password_digest %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <label class="label"><%= t("activerecord.attributes.user.password_digest", :default => t("activerecord.labels.password_digest", :default => "Password digest")) %>:</label>
+  <p><%= @user.password_digest %></p>
+<%= link_to "Back", users_path  %>
