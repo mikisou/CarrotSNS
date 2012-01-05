@@ -5,6 +5,4 @@
   <label class="label"><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</label>
   <p><%= @user.email %></p>
 
-  <label class="label"><%= t("activerecord.attributes.user.password_digest", :default => t("activerecord.labels.password_digest", :default => "Password digest")) %>:</label>
-  <p><%= @user.password_digest %></p>
 <%= link_to "Back", users_path  %>
