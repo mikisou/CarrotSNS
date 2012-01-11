@@ -1,8 +1,15 @@
+<table>
+  <tr>
+    <th><%= t("activerecord.attributes.user.login", :default => t("activerecord.labels.login", :default => "Login")) %></th>
+    <td><%= @user.login %></td>
+  </tr>
+  <tr>
+    <th><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %></th>
+    <td><%= @user.email %></td>
+  </tr>
+</table>
 
-  <label class="label"><%= t("activerecord.attributes.user.login", :default => t("activerecord.labels.login", :default => "Login")) %>:</label>
-  <p><%= @user.login %></p>
+<div class="actions">
+  <%= link_to "Back", users_path, class: "btn primary"  %>
+</div>
 
-  <label class="label"><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</label>
-  <p><%= @user.email %></p>
-
-<%= link_to "Back", users_path  %>
