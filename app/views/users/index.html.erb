@@ -2,11 +2,11 @@
  <thead>
   <tr>
     <th>No</th>
-    <th><%= t("activerecord.attributes.user.login", :default => t("activerecord.labels.login", :default => "Login")) %></th>
-    <th><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %></th>
-    <th>Created at</th>
-    <th>Updated at</th>
-    <th>Actions</th>
+    <th><%= ar_t("user", "login") %></th>
+    <th><%= ar_t("user", "email") %></th>
+    <th><%= ar_t("user", "created_at") %></th>
+    <th><%= ar_t("user", "updated_at") %></th>
+    <th><%= i18n_t("label", "actions") %></th>
   </tr>
   </thead>
   <tbody>
@@ -18,16 +18,16 @@
      <td><%= time_format(user.created_at) %></td>
      <td><%= time_format(user.updated_at) %></td>
     <td>
-      <%= link_to "Show", user_path(user), class: "btn primary" %>
-      <%= link_to "Edit", edit_user_path(user), class: "btn" %>
-      <%= link_to "Destroy", user_path(user),
+      <%= link_to i18n_t("label", "show"), user_path(user), class: "btn primary" %>
+      <%= link_to i18n_t("label", "edit"), edit_user_path(user), class: "btn" %>
+      <%= link_to i18n_t("label", "destroy"), user_path(user),
                   class: "btn",
                   method: :delete,
-                  confirm: "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+                  confirm: i18n_t("confirm", "are_you_sure") %>
     </td>
     </tr>
     <% end -%>
    </tbody>
 </table>
 
-<%= link_to "New", new_user_path, :class => 'btn primary' %>
+<%= link_to i18n_t("label", "new"), new_user_path, :class => 'btn primary' %>

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 module CarrotSns
   module DateHelper
     def time_format(t, format = "%Y-%m-%d %H:%M:%S")
