@@ -4,6 +4,10 @@ module CarrotSns
   module I18nHelper
     I18N_MESSAGES_PREFIX = "carrot_sns.messages"
 
+    def model_t(model_name)
+      return I18n.t("activerecord.models.#{model_name}")
+    end
+
     def ar_t(model_name, attr_name, opts = {})
       default_value = opts[:default] || attr_name.capitalize
 

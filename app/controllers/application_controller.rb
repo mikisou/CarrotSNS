@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  include CarrotSns::I18nHelper
+
   private
 
   def current_user

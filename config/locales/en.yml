@@ -248,4 +248,7 @@ en:
         cancel: "Cancel"
       confirm:
         are_you_sure: "Are you sure?"
+      notice:
+        successfully_created: "%{model_name} was successfully created."
+        successfully_updated: "%{model_name} was successfully updated."
 

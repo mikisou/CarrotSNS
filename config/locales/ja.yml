@@ -249,4 +249,7 @@ ja:
         cancel: "キャンセル"
       confirm:
         are_you_sure: "実行してもよろしいですか？"
+      notice:
+        successfully_created: "%{model_name}を追加しました。"
+        successfully_updated: "%{model_name}を更新しました。"
 
