@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   def login_required
     unless current_user
-      flash[:error] = "Login required"
+      flash[:error] = i18n_t("notice", "login_required")
       redirect_to root_path
     end
   end

@@ -1,5 +1,11 @@
 <%= form_tag session_path, class: "pull-right" do %>
-  <%= text_field_tag :login, params[:login], class: "input-small", placeholder: "Username" %>
-  <%= password_field_tag :password, params[:password], class: "input-small", placeholder: "Password" %>
-  <button class="btn" type="submit">Sign in</button>
+  <%= text_field_tag :login, params[:login],
+                     class: "input-small",
+                     placeholder: ar_t("user", "login") %>
+
+  <%= password_field_tag :password, params[:password],
+                         class: "input-small",
+                         placeholder: ar_t("user", "password") %>
+
+  <button class="btn" type="submit"><%= i18n_t("label", "sign_in") %></button>
 <% end %>

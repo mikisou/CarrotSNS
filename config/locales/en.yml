@@ -246,9 +246,18 @@ en:
         delete: "Delete"
         save: "Save"
         cancel: "Cancel"
+        home: "Home"
+        sign_in: "Sign in"
+        sign_out: "Sign out"
       confirm:
         are_you_sure: "Are you sure?"
       notice:
+        success: "OK to %{action}"
         successfully_created: "%{model_name} was successfully created."
         successfully_updated: "%{model_name} was successfully updated."
+        logged_in: "Logged in"
+        logged_in: "Logged out"
+        login_required: "Login required"
+      error:
+        invalid_a_or_b: "Invalid %{item_a} or %{item_b}"
 

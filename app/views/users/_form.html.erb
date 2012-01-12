@@ -8,6 +8,6 @@
     <%= f.password_field :password_confirmation, :class => 'password_field' %>
 
     <div class="actions">
-      <button class="btn primary" type="submit">Save</button> or
-      <%= link_to "Cancel", users_path %>
+      <button class="btn primary" type="submit"><%= i18n_t("label", "save") %></button> or
+      <%= link_to i18n_t("label", "cancel"), users_path %>
     </div>
