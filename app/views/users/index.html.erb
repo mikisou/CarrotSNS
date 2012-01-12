@@ -1,7 +1,6 @@
 <table class="zebra-striped">
  <thead>
   <tr>
-    <th>No</th>
     <th><%= ar_t("user", "login") %></th>
     <th><%= ar_t("user", "email") %></th>
     <th><%= ar_t("user", "created_at") %></th>
@@ -10,9 +9,8 @@
   </tr>
   </thead>
   <tbody>
-  <% @users.each_with_index do |user, idx| -%>
+  <% @users.each do |user| -%>
    <tr>
-     <td><%= idx + 1 %></td>
      <td><%= link_to user.login, user_path(user) %></td>
      <td><%= user.email %></td>
      <td><%= time_format(user.created_at) %></td>
@@ -29,5 +27,7 @@
     <% end -%>
    </tbody>
 </table>
+
+<%= paginate @users %>
 
 <%= link_to i18n_t("label", "new"), new_user_path, :class => 'btn primary' %>

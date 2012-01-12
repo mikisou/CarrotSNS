@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   layout "application_no_sidebar"
 
   def index
-    @users = User.all
+    @users = User.order("created_at").page(params[:page])
   end
 
   def show
