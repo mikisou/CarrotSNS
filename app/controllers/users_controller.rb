@@ -4,7 +4,13 @@ class UsersController < ApplicationController
   layout "application_no_sidebar"
 
   def index
-    @users = User.order("created_at").page(params[:page])
+    @users = User.order("created_at")
+
+    if params.has_key?(:keyword) && !params[:keyword].empty?
+      @users = @users.search(params[:column], params[:keyword])
+    end
+
+    @users = @users.page(params[:page])
   end
 
   def show

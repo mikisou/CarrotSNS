@@ -250,6 +250,9 @@ ja:
         home: "ホーム"
         sign_in: "ログイン"
         sign_out: "ログアウト"
+        search: "検索"
+        keyword: "キーワード"
+        clear: "クリア"
       confirm:
         are_you_sure: "実行してもよろしいですか？"
       notice:

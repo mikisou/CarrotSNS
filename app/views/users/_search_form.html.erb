@@ -1,0 +1,23 @@
+<%= form_tag users_path, method: "get", class: "pull-right" do %>
+  <fieldset>
+    <div class="clearfix">
+      <%= label_tag :column, i18n_t("label", "search") %>
+      <div class="input">
+        <%= select_tag :column,
+                       options_for_select(User::SEARCHABLE_COLUMNS, params[:column]),
+                       class: "medium" %>
+
+        <%= text_field_tag :keyword, params[:keyword],
+                           class: "input-large",
+                           placeholder: i18n_t("label", "keyword") %>
+
+        <%= hidden_field_tag :page, params[:page] %>
+
+        <button class="btn primary" type="submit"><%= i18n_t("label", "search") %></button>
+        <button class="btn" type="button" onclick="$('#keyword').val('');">
+          <%= i18n_t("label", "clear") %>
+        </button>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

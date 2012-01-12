@@ -249,6 +249,9 @@ en:
         home: "Home"
         sign_in: "Sign in"
         sign_out: "Sign out"
+        search: "Search"
+        keyword: "Keyword"
+        clear: "Clear"
       confirm:
         are_you_sure: "Are you sure?"
       notice:
