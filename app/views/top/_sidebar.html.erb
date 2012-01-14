@@ -16,6 +16,12 @@
 </ul>
 <h5>Sidebar</h5>
 <ul>
-  <li><a href="#">Link</a></li>
   <li class="<%= controller.controller_path == 'users' ? 'active' : '' %>"><a href="<%= users_path %>">Users</a></li>
 </ul>
+
+<%= form_tag change_locale_top_index_path, class: "form" do %>
+  <%= select_tag :locale,
+                 options_for_select([["日本語", "ja"], ["English", "en"]], session[:locale]),
+                 class: "input-small" %>
+  <%= submit_tag "変更" %>
+<% end %>

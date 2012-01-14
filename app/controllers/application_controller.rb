@@ -7,10 +7,12 @@ class ApplicationController < ActionController::Base
   # force_ssl
 
   before_filter :login_required
+  before_filter :set_locale
 
   helper_method :current_user
 
   include CarrotSns::I18nHelper
+  include CarrotSns::I18nLocale
 
   private
 

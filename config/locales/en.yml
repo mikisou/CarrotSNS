@@ -252,14 +252,16 @@ en:
         search: "Search"
         keyword: "Keyword"
         clear: "Clear"
+        language: "Language"
       confirm:
         are_you_sure: "Are you sure?"
       notice:
         success: "OK to %{action}"
-        successfully_created: "%{model_name} was successfully created."
-        successfully_updated: "%{model_name} was successfully updated."
+        successfully_created: "%{name} was successfully created."
+        successfully_updated: "%{name} was successfully updated."
+        successfully_changed: "%{name} was successfully changed."
         logged_in: "Logged in"
-        logged_in: "Logged out"
+        logged_out: "Logged out"
         login_required: "Login required"
       error:
         invalid_a_or_b: "Invalid %{item_a} or %{item_b}"

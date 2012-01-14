@@ -253,12 +253,14 @@ ja:
         search: "検索"
         keyword: "キーワード"
         clear: "クリア"
+        language: "言語"
       confirm:
         are_you_sure: "実行してもよろしいですか？"
       notice:
         success: "%{action}しました。"
-        successfully_created: "%{model_name}を追加しました。"
-        successfully_updated: "%{model_name}を更新しました。"
+        successfully_created: "%{name}を追加しました。"
+        successfully_updated: "%{name}を更新しました。"
+        successfully_changed: "%{name}を変更しました。"
         logged_in: "ログインしました。"
         logged_out: "ログアウトしました。"
         login_required: "ログインしてください。"

@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120105061648) do
+ActiveRecord::Schema.define(:version => 20120114145924) do
+
+  create_table "profiles", :force => true do |t|
+    t.string   "nick_name"
+    t.string   "locale",     :default => "ja"
+    t.integer  "age"
+    t.text     "comment"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "profiles", ["nick_name"], :name => "index_profiles_on_nick_name"
+  add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "login"
@@ -20,5 +33,8 @@ ActiveRecord::Schema.define(:version => 20120105061648) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["login"], :name => "index_users_on_login"
 
 end
