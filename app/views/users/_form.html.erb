@@ -9,7 +9,9 @@
   <%= f.fields_for :profile do |f| %>
     <%= f.text_field :nick_name, :class => 'text_field' %>
     <%= f.text_field :age, :class => 'text_field' %>
-    <%= f.text_field :locale, :class => 'text_field' %>
+    <%= f.select :locale,
+                 CarrotSns::Application.config.avairable_languages,
+                 :class => 'select' %>
     <%= f.text_area :comment, :class => 'text_area', cols: 80, rows: 6 %>
   <% end %>
 
