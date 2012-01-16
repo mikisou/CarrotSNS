@@ -253,6 +253,7 @@ en:
         keyword: "Keyword"
         clear: "Clear"
         language: "Language"
+        profile: "Profile"
       confirm:
         are_you_sure: "Are you sure?"
       notice:
@@ -265,4 +266,5 @@ en:
         login_required: "Login required"
       error:
         invalid_a_or_b: "Invalid %{item_a} or %{item_b}"
+        not_exist: "%{name} does not exist"
 

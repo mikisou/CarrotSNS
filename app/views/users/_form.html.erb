@@ -1,13 +1,20 @@
-    <%= render partial: "shared/form_errors", locals: {obj: @user} %>
+<%= bootstrap_form_for @user, :html => {class: 'form-stacked' } do |f| -%>
+  <%= render partial: "shared/form_errors", locals: {obj: @user} %>
 
-    <%= f.text_field :login, :class => 'text_field' %>
+  <%= f.text_field :login, :class => 'text_field' %>
+  <%= f.text_field :email, :class => 'text_field' %>
+  <%= f.password_field :password, :class => 'password_field' %>
+  <%= f.password_field :password_confirmation, :class => 'password_field' %>
+    
+  <%= f.fields_for :profile do |f| %>
+    <%= f.text_field :nick_name, :class => 'text_field' %>
+    <%= f.text_field :age, :class => 'text_field' %>
+    <%= f.text_field :locale, :class => 'text_field' %>
+    <%= f.text_area :comment, :class => 'text_area', cols: 80, rows: 6 %>
+  <% end %>
 
-    <%= f.text_field :email, :class => 'text_field' %>
-
-    <%= f.password_field :password, :class => 'password_field' %>
-    <%= f.password_field :password_confirmation, :class => 'password_field' %>
-
-    <div class="actions">
-      <button class="btn primary" type="submit"><%= i18n_t("label", "save") %></button> or
-      <%= link_to i18n_t("label", "cancel"), users_path %>
-    </div>
+  <div class="actions">
+    <button class="btn primary" type="submit"><%= i18n_t("label", "save") %></button> or
+    <%= link_to i18n_t("label", "cancel"), users_path %>
+  </div>
+<% end -%>

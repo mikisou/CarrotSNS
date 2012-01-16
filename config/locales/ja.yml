@@ -254,6 +254,7 @@ ja:
         keyword: "キーワード"
         clear: "クリア"
         language: "言語"
+        profile: "プロフィール"
       confirm:
         are_you_sure: "実行してもよろしいですか？"
       notice:
@@ -266,5 +267,6 @@ ja:
         login_required: "ログインしてください。"
       error:
         invalid_a_or_b: "%{item_a}または%{item_b}が不正です。"
+        not_exist: "%{name}がありません。"
 
 

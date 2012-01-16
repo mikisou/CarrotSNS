@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.profile = Profile.new
   end
 
   def edit
@@ -27,6 +28,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+
+    unless @user.profile
+      flash[:error] = i18n_t("error", "not_exist",
+                             name: i18n_t("label", "profile"))
+      redirect_to users_path
+      return false
+    end
 
     if @user.save
       redirect_to @user, notice: i18n_t("notice", "successfully_created",

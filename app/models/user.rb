@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_secure_password
   has_one :profile, dependent: :destroy
 
+  accepts_nested_attributes_for :profile, allow_destroy: true
+
   validates :password, presence: true, on: :create
   validates :login, presence: true, uniqueness: true
 
