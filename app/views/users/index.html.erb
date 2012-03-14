@@ -1,10 +1,11 @@
 <div class="row">
+  <h2>User index</h2>
   <div class="span16">
     <%= render partial: "search_form" %>
   </div>
 </div>
 
-<table class="zebra-striped">
+<table class="table table-striped">
  <thead>
   <tr>
     <th><%= ar_t("user", "login") %></th>
@@ -36,4 +37,4 @@
 
 <%= paginate @users %>
 
-<%= link_to i18n_t("label", "new"), new_user_path, :class => 'btn primary' %>
+<%= link_to i18n_t("label", "new"), new_user_path, :class => 'btn' %>

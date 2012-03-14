@@ -233,9 +233,17 @@ ja:
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "パスワード（確認）"
+      profile:
+        nick_name: "ニックネーム"
+        age: "年齢"
+        locale: "地域"
+        comment: "コメント"
 
   carrot_sns:
     messages:
+      title:
+        new: "%{name}作成"
+        edit: "%{name}編集"
       label:
         actions: "操作"
         new: "作成"
@@ -255,6 +263,7 @@ ja:
         clear: "クリア"
         language: "言語"
         profile: "プロフィール"
+        user: "ユーザー"
       confirm:
         are_you_sure: "実行してもよろしいですか？"
       notice:

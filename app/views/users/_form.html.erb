@@ -1,22 +1,23 @@
-<%= bootstrap_form_for @user, :html => {class: 'form-stacked' } do |f| -%>
+<%= bootstrap_form_for @user, :html => {class: 'well' } do |f| -%>
   <%= render partial: "shared/form_errors", locals: {obj: @user} %>
 
-  <%= f.text_field :login, :class => 'text_field' %>
-  <%= f.text_field :email, :class => 'text_field' %>
-  <%= f.password_field :password, :class => 'password_field' %>
-  <%= f.password_field :password_confirmation, :class => 'password_field' %>
+  <%= f.text_field :login, :class => 'span4' %>
+  <%= f.text_field :email, :class => 'span4' %>
+  <%= f.password_field :password, :class => 'span4' %>
+  <%= f.password_field :password_confirmation, :class => 'span4' %>
     
-  <%= f.fields_for :profile do |f| %>
-    <%= f.text_field :nick_name, :class => 'text_field' %>
-    <%= f.text_field :age, :class => 'text_field' %>
-    <%= f.select :locale,
+  <%= f.fields_for :profile do |profile| %>
+    <%= profile.text_field :nick_name, :class => 'span4' %>
+    <%= profile.text_field :age, :class => 'span2' %>
+    <%= profile.select :locale,
                  CarrotSns::Application.config.avairable_languages,
                  :class => 'select' %>
-    <%= f.text_area :comment, :class => 'text_area', cols: 80, rows: 6 %>
+    <%= profile.text_area :comment, :class => 'span5', cols: 80, rows: 6 %>
   <% end %>
 
-  <div class="actions">
-    <button class="btn primary" type="submit"><%= i18n_t("label", "save") %></button> or
+  <div class="form-actions">
+    <%= f.submit i18n_t("label", "save"),
+                 class: "btn btn-primary" %> or
     <%= link_to i18n_t("label", "cancel"), users_path %>
   </div>
 <% end -%>
