@@ -1,6 +1,6 @@
 <% if message %>
-  <div class="alert-message <%= m_type %>">
-    <a class="close" href="#">&times;</a>
+  <div class="alert alert-<%= m_type %>">
+    <a class="close" data-dismiss="alert">×</a>
     <p><%= message %></p>
   </div>
 <% end %>

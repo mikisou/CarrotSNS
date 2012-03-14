@@ -1,21 +1,30 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <%= render partial: "shared/html_header" %>
-</head>
-<body style="padding-top: 60px">
-  <%= render partial: "shared/topbar" %>
-  
-  <div class="container">
-    <div class="content">
-      <div class="row">
-        <div class="span16">
-          <%= render partial: "shared/flash_list" %>
-          <%= yield %>
-          <%= render partial: "shared/footer" %>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <%= render partial: "shared/html_header" %>
+  </head>
+  <body style="padding-top: 60px">
+    <%= render partial: "shared/topbar" %>
+
+    <div class="container">
+      <div class="content">
+        <div class="row">
+          <div class="span12">
+            <%= render partial: "shared/flash_list" %>
+            <%= yield %>
+          </div>
+          <div class="span1">&nbsp;</div>
         </div>
       </div>
-    </div>
-  </div>
-</body>
+
+      <%= render partial: "shared/footer" %>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag "application" %>
+
+  </body>
 </html>
