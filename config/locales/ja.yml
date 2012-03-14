@@ -253,6 +253,7 @@ ja:
         create: "作成"
         update: "更新"
         delete: "削除"
+        change: "変更"
         save: "保存"
         cancel: "キャンセル"
         home: "ホーム"

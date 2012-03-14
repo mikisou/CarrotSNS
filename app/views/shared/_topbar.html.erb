@@ -9,6 +9,8 @@
       <%= link_to "Carrot SNS", root_path, class: "brand" %>
       <div class="container nav-collapse">
         <%= render partial: "shared/menu" %>
+        <%= render partial: "shared/change_lang_form" %>
+
         <% if current_user %>
           <%= render partial: "shared/logout" %>
         <% else %>

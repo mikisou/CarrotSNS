@@ -252,6 +252,7 @@ en:
         create: "Create"
         update: "Update"
         delete: "Delete"
+        change: "Change"
         save: "Save"
         cancel: "Cancel"
         home: "Home"

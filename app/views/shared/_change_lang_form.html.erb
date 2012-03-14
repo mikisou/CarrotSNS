@@ -1,0 +1,6 @@
+<%= form_tag change_locale_top_index_path, class: "navbar-form pull-left" do %>
+  <%= select_tag :locale,
+                 options_for_select(CarrotSns::Application.config.avairable_languages, session[:locale]),
+                 class: "input-small" %>
+  <%= submit_tag i18n_t("label", "change"), class: "btn" %>
+<% end %>
