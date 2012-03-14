@@ -264,6 +264,7 @@ en:
         language: "Language"
         profile: "Profile"
         user: "User"
+        change_language: "Change language"
       confirm:
         are_you_sure: "Are you sure?"
       notice:
@@ -277,4 +278,5 @@ en:
       error:
         invalid_a_or_b: "Invalid %{item_a} or %{item_b}"
         not_exist: "%{name} does not exist"
+        failed: "%{action} failed"
 

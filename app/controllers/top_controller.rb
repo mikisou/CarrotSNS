@@ -7,9 +7,22 @@ class TopController < ApplicationController
   end
 
   def change_locale
-    set_locale(params[:locale])
-    redirect_to root_path,
-                notice: i18n_t("notice", "successfully_changed",
-                               name: i18n_t("label", "language"))
+    error_msg = i18n_t("error", "failed",
+                       action: i18n_t("label", "change_language"))
+    if current_user
+      unless current_user.profile.update_locale(params[:locale])
+        flash[:error] = error_msg
+        redirect_to root_path
+        return
+      end
+    end
+
+    if set_locale(params[:locale])
+      flash[:notice] = i18n_t("notice", "successfully_changed",
+                              name: i18n_t("label", "language"))
+    else
+      flash[:error] = error_msg
+    end
+    redirect_to root_path
   end
 end
