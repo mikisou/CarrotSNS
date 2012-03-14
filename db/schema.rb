@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(:version => 20120114145924) do
     t.integer  "age"
     t.text     "comment"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   add_index "profiles", ["nick_name"], :name => "index_profiles_on_nick_name"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(:version => 20120114145924) do
     t.string   "login"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
