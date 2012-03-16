@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
+# ユーザーアカウントモデル
 class User < ActiveRecord::Base
+  # 検索可能なカラム名の配列（ユーザー一覧画面の検索フォームで使用する）
   SEARCHABLE_COLUMNS = [[I18n.t("activerecord.attributes.user.login"), :login],
                         [I18n.t("activerecord.attributes.user.email"), :email]]
 

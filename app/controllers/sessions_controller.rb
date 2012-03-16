@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
+# ログイン認証用コントローラ
 class SessionsController < ApplicationController
   skip_before_filter :login_required, only: [:create]
 
+  # ログイン実行
   def create
     user = User.find_by_login(params[:login])
     if user && user.authenticate(params[:password])
@@ -16,6 +18,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  # ログアウト実行
   def destroy
     session[:user_id] = nil
     redirect_to root_url, notice: i18n_t("notice", "logged_out")

@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
+# ユーザーアカウント管理用コントローラ
 class UsersController < ApplicationController
   layout "application_no_sidebar"
 
+  # ユーザーアカウント一覧画面
   def index
     @users = User.order("created_at")
 
@@ -13,19 +15,23 @@ class UsersController < ApplicationController
     @users = @users.page(params[:page])
   end
 
+  # 個別ユーザーの詳細情報表示画面
   def show
     @user = User.find(params[:id])
   end
 
+  # 新規ユーザー登録フォーム画面
   def new
     @user = User.new
     @user.profile = Profile.new
   end
 
+  # 既存ユーザー編集フォーム画面
   def edit
     @user = User.find(params[:id])
   end
 
+  # 新規ユーザー登録実行
   def create
     @user = User.new(params[:user])
 
@@ -44,6 +50,7 @@ class UsersController < ApplicationController
     end
   end
 
+  # 既存ユーザー情報更新実行
   def update
     @user = User.find(params[:id])
 
@@ -55,6 +62,7 @@ class UsersController < ApplicationController
     end
   end
 
+  # 強制退会（ユーザーアカウント削除）実行
   def destroy
     @user = User.find(params[:id])
     @user.destroy
