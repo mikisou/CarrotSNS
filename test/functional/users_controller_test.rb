@@ -3,52 +3,115 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  setup do
+    @admin = FactoryGirl.create(:admin, password: 'monkey')
+    @users = []
+    5.times { @users << FactoryGirl.create(:user, password: 'monkey') }
+    session[:user_id] = @admin.id
+  end
+
   context "GET index" do
-    setup do
-      @admin = FactoryGirl.create(:admin, password: 'monkey')
-      session[:user_id] = @admin.id
+    should "without search keyword" do
+      get :index
+      users = assigns(:users)
+      assert_response :success
+      assert_template "index"
+      assert_equal ActiveRecord::Relation, users.class
+      assert_equal 5, users.size
+      assert_equal User.order("created_at").all[0..4], users
+      assert flash.empty?
+      assert_filter_param(:password)
     end
 
-    context "without search keyword" do
-      setup do
-        get :index
+    should "with search keyword for 'login' column" do
+      get :index, column: 'login', keyword: 'admin'
+      users = assigns(:users)
+      assert_response :success
+      assert_template "index"
+      assert_equal ActiveRecord::Relation, users.class
+      assert_equal 1, users.size
+      assert_equal [User.find(@admin.id)], users
+      assert flash.empty?
+      assert_filter_param(:password)
+    end
+
+    should "with search keyword for 'email' column" do
+      get :index, column: 'email', keyword: 'carrot_admin'
+      users = assigns(:users)
+      assert_response :success
+      assert_template "index"
+      assert_equal ActiveRecord::Relation, users.class
+      assert_equal 1, users.size
+      assert_equal [User.find(@admin.id)], users
+      assert flash.empty?
+      assert_filter_param(:password)
+    end
+
+    should "with search keyword for prohibition column" do
+      assert_raise(CarrotSns::InvalidColumnNameError) do
+        get :index, column: 'created_at', keyword: 'carrot_admin'
       end
-      should respond_with(:success)
-      should render_template(:index)
-      should render_with_layout
-      should assign_to(:users).with_kind_of(ActiveRecord::Relation)
+
+      assert_raise(CarrotSns::InvalidColumnNameError) do
+        get :index, column: nil, keyword: 'carrot_admin'
+      end
+
+      assert_raise(CarrotSns::InvalidColumnNameError) do
+        get :index, column: '', keyword: 'carrot_admin'
+      end
     end
   end
 
 
-  test "should create user" do
-#    assert_difference('User.count') do
-#      post :create, user: @user.attributes
-#    end
+  context "POST create" do
+    should "create successfully" do
+      user_attr = {login: "testing", email: "dummy@localhost.local",
+                   password: "testpassword", password_confirmation: "testpassword",
+                   profile_attributes: {nick_name: "hide", age: 36,
+                                           locale: "ja", comment: "test"}
+                  }
 
-#    assert_redirected_to user_path(assigns(:user))
+      assert_difference('User.count') do
+        post :create, user: user_attr
+      end
+     assert_redirected_to user_path(assigns(:user))
+    end
   end
 
-  test "should show user" do
-#    get :show, id: @user.to_param
-#    assert_response :success
+  context "GET show" do
+    should "show user successfully" do
+      get :show, id: @admin.id
+      assert_response :success
+      assert_template 'show'
+    end
   end
 
-  test "should get edit" do
-#    get :edit, id: @user.to_param
-#    assert_response :success
+  context "GET edit" do
+    should "get edit successfully" do
+      get :edit, id: @admin.id
+      assert_response :success
+      assert_template 'edit'
+    end
   end
 
-  test "should update user" do
-#    put :update, id: @user.to_param, user: @user.attributes
-#    assert_redirected_to user_path(assigns(:user))
+  context "PUT update" do
+    should "update user successfully" do
+      user_attr = {login: "testing", email: "dummy@localhost.local",
+                   password: "testpassword", password_confirmation: "testpassword",
+                   profile_attributes: {nick_name: "hide", age: 36,
+                                        locale: "ja", comment: "test"}}
+
+      put :update, id: @admin.id, user: user_attr
+      assert_redirected_to user_path(assigns(:user))
+    end
   end
 
-  test "should destroy user" do
-#    assert_difference('User.count', -1) do
-#      delete :destroy, id: @user.to_param
-#    end
-
-#    assert_redirected_to users_path
+  context "DELETE destroy" do
+    should "delete user successfully" do
+      assert_difference('User.count', -1) do
+        delete :destroy, id: @admin.id
+      end
+      assert_redirected_to users_path
+    end
   end
 end

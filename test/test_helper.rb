@@ -10,4 +10,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def assert_filter_param(key)
+    assert Rails.application.config.filter_parameters.include?(key.to_sym)
+  end
 end
