@@ -13,4 +13,11 @@ class ActiveSupport::TestCase
   def assert_filter_param(key)
     assert Rails.application.config.filter_parameters.include?(key.to_sym)
   end
+
+  def assert_not_logged_in
+    assert_response :redirect
+    assert_redirected_to root_path
+    msg = I18n.t("#{CarrotSns::I18nHelper::I18N_MESSAGES_PREFIX}.notice.login_required")
+    assert_equal msg, flash[:error]
+  end
 end
