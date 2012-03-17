@@ -3,7 +3,8 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test "the truth" do
-    assert true
+  should have_one :profile
+
+  should "check associations" do
   end
 end

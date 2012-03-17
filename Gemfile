@@ -39,8 +39,10 @@ end
 group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
+  gem 'factory_girl_rails'
   gem 'shoulda'
   gem 'test-unit'
+  gem 'minitest-reporters'
 end
 
 gem 'execjs'

@@ -3,7 +3,8 @@
 require 'test_helper'
 
 class ProfileTest < ActiveSupport::TestCase
-  test "the truth" do
-    assert true
+  should belong_to :user
+
+  should "have normal associations " do
   end
 end
