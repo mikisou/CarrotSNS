@@ -45,7 +45,7 @@ end
 gem 'execjs'
 gem 'therubyracer'
 
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', '2.0.2'
 gem 'bcrypt-ruby'
 
 gem 'kaminari'
