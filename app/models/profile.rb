@@ -6,6 +6,14 @@ class Profile < ActiveRecord::Base
 
   accepts_nested_attributes_for :user, allow_destroy: true
 
+  validates :nick_name, presence: true,
+                         uniqueness: true,
+                         length: {maximum: 90}
+  validates :locale, presence: true,
+                      :inclusion => { :in => ['ja', 'en'] }
+  validates :age, numericality: true
+  validates :comment, length: { maximum: (90 * 1024) }
+
   # プロフィールのロケール情報を変更
   # @param locale_val 変更後のロケール文字列（jaもしくはen）
   # @return nil
